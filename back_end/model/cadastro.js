@@ -1,4 +1,4 @@
-const conexao = require('./config/dbConnection')
+const conexao = require('../config/dbConnection')
 
 class Cadastro{
 
@@ -23,7 +23,7 @@ class Cadastro{
     }
 
     buscaPorId(id, res){
-        let sql = 'SELECT * FROM usuario WHERE id_login_pk=?'// ? = 1
+        let sql = 'SELECT * FROM usuario WHERE idusuario=?'// ? = 1
         conexao.query(sql,id,(erro, resultado)=>{
             if(erro){
                 res.status(400).json(erro)
@@ -34,7 +34,7 @@ class Cadastro{
     }
     
     altera(id, valores, res){
-        let sql = 'UPDATE usuario SET ? WHERE id_login_pk = ?'
+        let sql = 'UPDATE usuario SET ? WHERE idusuario = ?'
         conexao.query(sql,[valores, id],(erro, resultado)=>{
             if(erro){
                 res.status(400).json(erro)

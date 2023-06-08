@@ -1,4 +1,4 @@
-function toJason(){
+/*function toJason(){
     let jsonSend = 
     `{  "nome": ${document.getElementById('name').value},
         "email": ${document.getElementById('email').value},
@@ -10,7 +10,6 @@ console.log(jsonSend)
 }
 
 
-
 function Json(){
 	let jsonSend =  `{  "nome": ${document.getElementById('name').value},
 	"email": ${document.getElementById('email').value},
@@ -18,9 +17,9 @@ function Json(){
 }` 
 
 console.log(jsonSend)
-}
+}*/
 
-/*function fazPost(url, body){
+function fazPost(url, body){
     let request = new XMLHttpRequest()
     request.open("POST", url, true)
     request.setRequestHeader("Content-type", "application/json")
@@ -33,13 +32,11 @@ console.log(jsonSend)
 }
 
 function cadastrar(){
-    let url = "http://localhost:3000/usuario"
+    let url = "http://localhost:3000/cadastro"
     let name = document.getElementById('name').value 
 	let email = document.getElementById('email').value 
 	let pass = document.getElementById('pass').value 
 	let phone = document.getElementById('phone').value 
-   
-   
     body = {
 		"nome": name, 
         "email": email,
@@ -48,4 +45,4 @@ function cadastrar(){
     }
 
     fazPost(url, body)
-}*/
+}
