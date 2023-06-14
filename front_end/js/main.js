@@ -39,4 +39,4 @@ const btn = document.getElementById('pesquisa');
    })
    
   // const btns = document.querySelectorall('movie');
- 
+ //

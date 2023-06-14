@@ -51,8 +51,8 @@ function fazPost(url, body){
 
 console.log("entrou no script")
 
+//
 
-/*
 const btn = document.getElementById('submit');
 
 btn.addEventListener('click', () =>{
@@ -72,4 +72,4 @@ btn.addEventListener('click', () =>{
 
     fazPost(url, body)
 });
-*/
+

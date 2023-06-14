@@ -12,3 +12,5 @@ module.exports = app => {
 
    app.use('/api/cadastros', router)
 }
+
+//

@@ -1,4 +1,5 @@
 const Login = require('../model/cadastro.model.js')
+//
 
 exports.adiciona = (req, res) => {
 

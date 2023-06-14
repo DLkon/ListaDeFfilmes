@@ -1,5 +1,5 @@
 const sql = require("./db.js")
-
+//
 class Cadastro{
     
     adiciona(login, resultado){

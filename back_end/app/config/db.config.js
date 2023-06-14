@@ -4,3 +4,5 @@ module.exports = {
     PASSWORD: "1234",
     DB: "teste",
 };
+
+console.log("oi")
