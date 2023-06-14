@@ -1,3 +1,19 @@
+export function salvaFilme(){
+    const spans = document.querySelectorAll('.add');
+    spans.forEach(function(span){
+        span.addEventListener("click", ()=>{
+           let movieID = span.id;
+           var li = span.closest('li');
+           var img = li.querySelector('img');
+           let posterPATH = img.src;
+
+
+    
+        })
+    })
+  
+}
+
 /*function toJason(){
     let jsonSend = 
     `{  "nome": ${document.getElementById('name').value},
@@ -19,6 +35,8 @@ function Json(){
 console.log(jsonSend)
 }*/
 
+
+
 function fazPost(url, body){
     let request = new XMLHttpRequest()
     request.open("POST", url, true)
@@ -31,18 +49,27 @@ function fazPost(url, body){
     return request.responseText
 }
 
-function cadastrar(){
-    let url = "http://localhost:3000/cadastro"
+console.log("entrou no script")
+
+
+/*
+const btn = document.getElementById('submit');
+
+btn.addEventListener('click', () =>{
+    console.log("oi")
+    let url = "http://localhost:8080/api/cadastros"
     let name = document.getElementById('name').value 
 	let email = document.getElementById('email').value 
 	let pass = document.getElementById('pass').value 
 	let phone = document.getElementById('phone').value 
-    body = {
-		"nome": name, 
+
+    let body = {
+		"name": name, 
         "email": email,
-        "senha": pass,
-		"telefone": phone
-    }
+        "password": pass,
+		"phone": phone
+    };
 
     fazPost(url, body)
-}
+});
+*/

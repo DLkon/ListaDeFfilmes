@@ -1,11 +1,14 @@
+import { salvaFilme } from "./script.js";
 const apiKey = "e4976d3322e90f8629ba68e6df85676f";
+const btn = document.getElementById('pesquisa');
 
-const btn = document.getElementById('movie');
 
    btn.addEventListener('click', () => {
 
     //pegar termo digitado pelo usuario
-    const searchTerm = document.getElementById('movieInput').value;
+    const searchTerm = document.getElementById('filmeInput').value;
+
+    
 
     //chamar api
     axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchTerm}`)
@@ -14,37 +17,20 @@ const btn = document.getElementById('movie');
         const movie = response.data.results;
         const image_path = "https://image.tmdb.org/t/p/w500/"
 
-
         //mostrar no frontend
-        const divResult = document.getElementById('resultado');
+        const divResult = document.getElementById('result');
         divResult.innerText = "";
-        divResult.classList.add("filme");
         movie.forEach(movie => {  
 
-            const itemElement = document.createElement('div');
-            itemElement.id = movie.id;
-
-            
-            
-            itemElement.textContent = "salvar";
-            itemElement.innerHTML = `<div class="card" display: inline-block; inline style="width: 18rem;">
-                <img src="${image_path}${movie.poster_path}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <p class="card-text">${movie.title}</p>
-                    </div>
-                </div>`
-
-                let btnDiv = document.createElement('button');
-                btnDiv.classList.add('movie');
-                btnDiv.innerText = "salvar";
-                itemElement.appendChild(btnDiv);
-                
-
+            const itemElement = document.createElement('li');
+            itemElement.innerHTML = `<img src="${image_path}${movie.poster_path}">
+                                     <span class="title">${movie.title}</span>
+                                     <span id="${movie.id}" class="add">Add</span>`       
             divResult.appendChild(itemElement);
-
-
-            
+           
         }) 
+        
+        salvaFilme();
         console.log(movie);         
     })
     .catch(error => {
@@ -53,7 +39,4 @@ const btn = document.getElementById('movie');
    })
    
   // const btns = document.querySelectorall('movie');
-   function salvaFilme(){
-        const movieId = document.getElementById('')
-        axios.get(`https://api.themoviedb.org/3/search/movie=${apiKey}&query=${movieId}`)
-    }
+ 
