@@ -6,9 +6,6 @@ module.exports = app => {
    //criar novo cadastro
    router.post("/", cadastros.adiciona);
 
-   router.get("/", (req,res) => {
-      res.json({message: "hi"})
-   })
 
    app.use('/api/cadastros', router)
 }

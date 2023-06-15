@@ -1,4 +1,3 @@
-import { salvaFilme } from "./script.js";
 const apiKey = "e4976d3322e90f8629ba68e6df85676f";
 const btn = document.getElementById('pesquisa');
 
@@ -7,9 +6,7 @@ const btn = document.getElementById('pesquisa');
 
     //pegar termo digitado pelo usuario
     const searchTerm = document.getElementById('filmeInput').value;
-
-    
-
+   
     //chamar api
     axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchTerm}`)
     .then(response =>{
@@ -38,5 +35,35 @@ const btn = document.getElementById('pesquisa');
     })
    })
    
-  // const btns = document.querySelectorall('movie');
- //
+
+   
+let url = "http://localhost:8080/api/filmes";
+
+ function salvaFilme(){
+    const spans = document.querySelectorAll('.add');
+    spans.forEach(function(span){
+        span.addEventListener("click", ()=>{
+           let movieID = span.id;
+           var li = span.closest('li');
+           var img = li.querySelector('img');
+           let posterPATH = img.src;
+
+            axios.post(url, {
+                userID: '1',
+                imdbID: `${movieID}`,
+                posterPath: `${posterPATH}`
+            })
+            .then(response =>{
+                console.log(response.data);
+            })
+            .catch(function (error){
+                console.log("erro no post " + error);
+            })
+           
+
+
+    
+        })
+    })
+  
+}

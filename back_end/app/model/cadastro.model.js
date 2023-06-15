@@ -3,10 +3,9 @@ const sql = require("./db.js")
 class Cadastro{
     
     adiciona(login, resultado){
-        
         sql.query("INSERT INTO users SET ?",login,(erro, res)=> {
             if(erro){
-                console.log("error: ", err);
+                console.log("error: ", erro);
                 resultado(erro, null);
                 return;
             }
