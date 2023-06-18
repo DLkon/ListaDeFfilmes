@@ -47,11 +47,13 @@ let url = "http://localhost:8080/api/filmes";
            var li = span.closest('li');
            var img = li.querySelector('img');
            let posterPATH = img.src;
+           let title = li.querySelector('.title').textContent;
 
             axios.post(url, {
                 userID: '1',
                 imdbID: `${movieID}`,
-                posterPath: `${posterPATH}`
+                posterPath: `${posterPATH}`,
+                title: `${title}`
             })
             .then(response =>{
                 console.log(response.data);
@@ -59,10 +61,7 @@ let url = "http://localhost:8080/api/filmes";
             .catch(function (error){
                 console.log("erro no post " + error);
             })
-           
 
-
-    
         })
     })
   

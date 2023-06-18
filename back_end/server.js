@@ -10,6 +10,7 @@ app.use(express.urlencoded({extended: true}));
 
 require("./app/routes/cadastro.routes.js")(app);
 require("./app/routes/filme.routes.js")(app);
+require("./app/controller/reating.js")(app);
 
 
 const PORT = process.env.PORT || 8080;
