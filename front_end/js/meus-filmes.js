@@ -1,4 +1,5 @@
-const url = "http://localhost:8080/api/filmes";
+const userID = localStorage.getItem("userID");
+const url = `http://localhost:8080/api/filmes/${userID}`;
 
 
 //METODO GET
@@ -9,16 +10,16 @@ axios.get(url)
 
     console.log(filmes);
     filmes.forEach((filme) => {
-        const {title, posterPath, movieID, status} = filme;
+        const {title, posterPath, movieID, status, imdbID} = filme;
         const body = document.getElementById('result');
-       
+        
         const tr = document.createElement('tr');
         tr.id = `${movieID}`
         tr.classList.add('list-item');
         tr.innerHTML = `
                             <td class="">${movieID}</td>
                             <td><img class="img-fluid" src="${posterPath}" alt=""></td>
-                            <td ><Span>${title}</Span></td>
+                            <td ><Span><a href="http://localhost:5500/front_end/detalhes.html?imdbID=${imdbID}">${title}</a></Span></td>
                             <td><a href="http://localhost:5500/front_end/rating.html?id=${movieID}"><img src="./img/plus-square.svg" alt=""></img></a>
                             </td>
                             <td id="status">${status}</td>

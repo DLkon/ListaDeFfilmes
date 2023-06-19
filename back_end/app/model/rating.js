@@ -15,16 +15,16 @@ class Rating{
         })
     }
 
-    lista(res){
-        const sql = 'SELECT * FROM rating'
-        conexao.query(sql, (erro, resultado) => {
+    lista(id,res){
+        const sql = 'SELECT * FROM rating WHERE userID = ?'
+        conexao.query(sql, id, (erro, resultado) => {
             if(erro){res.status(400).json(erro)
             }else{
                 res.status(200).json(resultado)}})
     }
 
     buscaPorId(id, res){
-        let sql = 'SELECT * FROM rating WHERE id_rating=?'// ? = 1
+        let sql = 'SELECT * FROM rating WHERE id = ?'// ? = 1
         conexao.query(sql,id,(erro, resultado)=>{
             if(erro){
                 res.status(400).json(erro)
@@ -35,7 +35,7 @@ class Rating{
     }
     
     altera(id, valores, res){
-        let sql = 'UPDATE rating SET ? WHERE id_rating = ?'
+        let sql = 'UPDATE rating SET ? WHERE id = ?'
         conexao.query(sql,[valores, id],(erro, resultado)=>{
             if(erro){
                 res.status(400).json(erro)
@@ -46,7 +46,14 @@ class Rating{
     }
 
     deleta(id, res){
-        let sql = 'DELETE reating '
+        let sql = 'DELETE from rating where id = ?'
+        conexao.query(sql,id,(erro, resultado)=>{
+            if(erro){
+                res.status(400).json(erro)
+            }else{
+                res.status(200).json(resultado)
+            }
+        })
     }
 
 }

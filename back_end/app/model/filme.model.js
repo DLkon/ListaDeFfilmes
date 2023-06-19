@@ -14,8 +14,8 @@ class Filme {
         })
     }   
 
-    showAll(result){
-        db.query("SELECT * from movies", (err, res) =>{
+    showAll(id, result){
+        db.query("SELECT * from movies WHERE userID = ?", id, (err, res) =>{
             if(err){
                 console.log("error: ", err);
                 result(err, null);

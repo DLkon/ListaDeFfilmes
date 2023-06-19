@@ -5,7 +5,7 @@ module.exports = app =>{
 
     //adicionar novo filme
     router.post("/", filmes.add);
-    router.get("/", filmes.get);
+    router.get("/:id", filmes.get);
     router.put("/:id", filmes.update);
     router.delete("/:id", filmes.delete);
     

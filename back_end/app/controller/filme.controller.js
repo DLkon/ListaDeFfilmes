@@ -20,7 +20,7 @@ exports.add = (req, res) => {
 }
 
 exports.get = (req, res) => {
-    filme.showAll((err,data)=> {
+    filme.showAll(req.params.id,(err,data)=> {
         if(err){
             res.status(500).send({
                 message: 
