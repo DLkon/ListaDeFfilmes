@@ -1,9 +1,10 @@
-const conexao = require('../config/db.config')
+const conexao = require('./db.js');
 
-class Reating{
+
+class Rating{
 
     adiciona(review, res){
-        let sql = 'INSERT INTO reating SET ?'
+        let sql = 'INSERT INTO rating SET ?'
         conexao.query(sql,review,(erro, resultado)=> {
             if(erro){
                 res.status(400).json(erro)
@@ -15,7 +16,7 @@ class Reating{
     }
 
     lista(res){
-        const sql = 'SELECT * FROM reating'
+        const sql = 'SELECT * FROM rating'
         conexao.query(sql, (erro, resultado) => {
             if(erro){res.status(400).json(erro)
             }else{
@@ -23,7 +24,7 @@ class Reating{
     }
 
     buscaPorId(id, res){
-        let sql = 'SELECT * FROM reating WHERE id_reating=?'// ? = 1
+        let sql = 'SELECT * FROM rating WHERE id_rating=?'// ? = 1
         conexao.query(sql,id,(erro, resultado)=>{
             if(erro){
                 res.status(400).json(erro)
@@ -34,7 +35,7 @@ class Reating{
     }
     
     altera(id, valores, res){
-        let sql = 'UPDATE reating SET ? WHERE id_reating = ?'
+        let sql = 'UPDATE rating SET ? WHERE id_rating = ?'
         conexao.query(sql,[valores, id],(erro, resultado)=>{
             if(erro){
                 res.status(400).json(erro)
@@ -44,6 +45,10 @@ class Reating{
         })
     }
 
+    deleta(id, res){
+        let sql = 'DELETE reating '
+    }
+
 }
 
-module.exports = new Reating
+module.exports = new Rating

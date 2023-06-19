@@ -19,10 +19,31 @@ exports.adiciona = (req, res) => {
       })
    
 
-      
-
-
 };
+
+exports.verifica = (req, res) => {
+   if(!req.body){
+      res.status(400).send({
+         message: "Conteudo não pode ser vazio"
+      });
+   }
+
+   const {email , password } = req.body
+
+   Login.verifica(email, password, (err,data) =>{
+      if(err)
+      res.status(500).send({
+         message:
+         err.message || "Ocorreu um erro ao verificar o usuário."
+      })
+
+      if(!data) {
+         return res.status(401).json({ error: 'Credenciais inválidas.' });
+      }
+      
+      else res.send(data);
+   })
+}
 
 /* module.exports = app => {
     app.get(rota, (req, res) => {

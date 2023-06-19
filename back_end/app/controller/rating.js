@@ -1,24 +1,24 @@
-const Reating = require('../model/reating')
-const rota = '/reating'
+const Rating = require('../model/rating')
+const rota = '/rating'
 
 module.exports = app => {
     app.get(rota, (req, res) => {
        // retorna os dados??
-       Reating.lista(res)
+       Rating.lista(res)
     })
     app.get((rota+'/:id'),(req, res) => {
        let id = parseInt(req.params.id)
-       Reating.buscaPorId(id, res)
+       Rating.buscaPorId(id, res)
     })
     app.post(rota, (req, res) => {
        console.log(req.body)
-       Reating.adiciona(req.body, res)
+       Rating.adiciona(req.body, res)
        //res.send('Você esta na rota '+ rota +' via POST')
     })
     //PUT??
     app.patch((rota+'/:id'),(req, res) =>{
        let id = parseInt(req.params.id)
        let valores = req.body
-       Reating.altera(id, valores, res)
+       Rating.altera(id, valores, res)
     })
  }

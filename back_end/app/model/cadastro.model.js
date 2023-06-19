@@ -15,6 +15,28 @@ class Cadastro{
         })
     }
 
+    verifica(email, password, resultado){
+        sql.query("SELECT userID FROM users WHERE email = ? AND password = ?", [email, password], (erro, res) => {
+            if(erro){
+                console.log('error:', erro);
+                resultado(erro, null);
+                return;
+            }
+
+            if(res.length === 0) {
+                console.log("resultado vazio da consulta");
+                resultado(null);
+            } else {
+                console.log(res);
+                resultado(null, res);
+            }
+
+           
+            
+        })
+    }
+
+    
     lista(res){
         const sql = 'SELECT * FROM usuario'
         conexao.query(sql, (erro, resultado) => {

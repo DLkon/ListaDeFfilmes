@@ -38,6 +38,19 @@ class Filme {
             result(null, {id: id, ...filme})
         }) 
     }
+    
+    delete(id, result){
+        db.query("DELETE FROM movies WHERE movieID = ?", id, (err, res) => {
+              if (err){
+                console.log("error: ", err);
+                result(err, null);
+                return;
+            }
+        
+            console.log("deleted movie with id: ", id);
+            result(null, res);
+        })
+    }
 
     
 

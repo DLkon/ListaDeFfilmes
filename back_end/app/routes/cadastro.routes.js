@@ -5,6 +5,7 @@ module.exports = app => {
 
    //criar novo cadastro
    router.post("/", cadastros.adiciona);
+   router.post('/login', cadastros.verifica);
 
 
    app.use('/api/cadastros', router)

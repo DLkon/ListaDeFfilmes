@@ -7,6 +7,7 @@ module.exports = app =>{
     router.post("/", filmes.add);
     router.get("/", filmes.get);
     router.put("/:id", filmes.update);
+    router.delete("/:id", filmes.delete);
     
     app.use('/api/filmes', router);
 }

@@ -49,3 +49,20 @@ exports.update = (req, res) => {
    });
 
 }
+
+exports.delete = (req, res) => {
+    if(!req.body){
+        res.status(400).send({
+            message: "conteudo não pode ser vazio"
+        });
+    }
+
+    filme.delete(req.params.id, (err,data) =>{
+        if(err) {
+            res.status(500).send({
+                message: "Error deleting movie with id " + req.params.id
+              });
+        } 
+        else res.send({ message: `movie was deleted successfully!` });
+    })
+}
