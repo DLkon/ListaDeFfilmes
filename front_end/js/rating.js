@@ -1,4 +1,6 @@
+const userID = localStorage.getItem("userID");
 
+console.log(userID);
 function fazPost(url, body){
     let request = new XMLHttpRequest()
     request.open("POST", url, true)
@@ -12,11 +14,13 @@ function fazPost(url, body){
 }
 
 function cadastrar(){
-    let url = "http://localhost:8080/reating"
+    let url = "http://localhost:8080/rating"
     let review = document.getElementById('review').value 
-	let reating = document.getElementById('reating').value 
+	let rating = document.getElementById('rating').value 
     body = {
-        "reating": reating, 
+        "userID": userID,
+        "movieID": TextDecoderStream,
+        "rating": rating, 
 		"review": review
         
     }

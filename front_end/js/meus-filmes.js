@@ -1,5 +1,7 @@
 const url = "http://localhost:8080/api/filmes";
 
+
+//METODO GET
 //chama os filmes no banco de dados
 axios.get(url)
 .then(response => {
@@ -17,15 +19,19 @@ axios.get(url)
                             <td class="">${movieID}</td>
                             <td><img class="img-fluid" src="${posterPath}" alt=""></td>
                             <td ><Span>${title}</Span></td>
-                            <td><a href=""><img src="./img/plus-square.svg" alt=""></a></td>
+                            <td><a href="http://localhost:5500/front_end/rating.html?id=${movieID}"><img src="./img/plus-square.svg" alt=""></img></a>
+                            </td>
                             <td id="status">${status}</td>
-                            <td class="actions"><a class="m-2 edit"><img src="./img/edit-2.svg" alt=""></a><a  class="m-2"><img src="./img/trash.svg" alt=""></a></td>
+                            <td class="actions"><a class="m-2 edit"><img src="./img/edit-2.svg" alt=""></a><a  class="m-2 delete"><img src="./img/trash.svg" alt=""></a></td>
                         `
+
+
 
         body.appendChild(tr);
     })
 
     fazEdit();
+    fazDelete();
 })
 .catch(error => {
     console.log(error);
@@ -34,12 +40,12 @@ axios.get(url)
 
 
 
-
+//METODO UPDATE
 // função de editar status do filme
 function fazEdit() {
 
 let edtions = document.querySelectorAll('.edit');
-console.log(edtions);
+//console.log(edtions);
 
 edtions.forEach(function (editIcon){
     editIcon.addEventListener('click', (event) =>{
@@ -83,3 +89,33 @@ edtions.forEach(function (editIcon){
 
 }   
 
+
+//METODO DE DELETAR POR ID
+function fazDelete(){
+    let deleteElements = document.querySelectorAll('.delete');
+    deleteElements.forEach((element) => {
+        element.addEventListener('click', (event) => {
+            const deleteIcon = event.target;
+            const deleteElement = deleteIcon.closest('tr');
+            const tbody = document.getElementById('result');
+            let id = deleteElement.id;
+
+            axios.delete(`http://localhost:8080/api/filmes/${id}`)
+            .then(response => {
+                console.log(response.data);
+                tbody.removeChild(deleteElement);
+                
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+        })
+    })
+    
+}
+
+function modal(){
+
+
+}

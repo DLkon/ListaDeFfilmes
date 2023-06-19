@@ -1,5 +1,6 @@
 const apiKey = "e4976d3322e90f8629ba68e6df85676f";
 const btn = document.getElementById('pesquisa');
+const userID = localStorage.getItem("userID");
 
 
    btn.addEventListener('click', () => {
@@ -50,7 +51,7 @@ let url = "http://localhost:8080/api/filmes";
            let title = li.querySelector('.title').textContent;
 
             axios.post(url, {
-                userID: '1',
+                userID: `${userID}`,
                 imdbID: `${movieID}`,
                 posterPath: `${posterPATH}`,
                 title: `${title}`
