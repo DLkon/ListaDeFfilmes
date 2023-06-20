@@ -24,14 +24,21 @@ thead{
     height: 36px;
 }
 
-th {
+th{
+    font-family: 'Quicksand', sans-serif;
     text-align: center;
 }
-
 
 td {
     text-align: center;
     vertical-align: middle;
 }
+li{
+    font-family: 'Quicksand', sans-serif;
+}
+span{
+    font-family: 'Quicksand', sans-serif;
+}
+
 
 
