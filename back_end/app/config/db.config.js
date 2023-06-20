@@ -2,7 +2,7 @@ module.exports = {
     HOST: "localhost",
     USER: "root",
     PASSWORD: "1234",
-    DB: "teste",
+    DB: "movie",
 };
 
 console.log("oi")

@@ -1,5 +1,5 @@
 const loginBtn = document.getElementById('btn');
-const url = 'http://localhost:8080/api/cadastros/login';
+const url = 'http://localhost:8000/api/cadastros/login';
 
 
 
@@ -16,9 +16,10 @@ function verificaLogin(url, body){
           const response = JSON.parse(req.responseText);
           const[primeiroObjeto] = response;
           const {userID} = primeiroObjeto;
-            console.log(userID);
+          localStorage.setItem('userID', userID);
+           window.location.href = `http://localhost:5500/ListaDeFilmes-main/front_end/home.html?id=${userID}`;
+          
 
-        localStorage.setItem("userID", userID);
     }
 }
 

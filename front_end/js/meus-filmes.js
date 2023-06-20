@@ -1,5 +1,5 @@
 const userID = localStorage.getItem("userID");
-const url = `http://localhost:8080/api/filmes/${userID}`;
+const url = `http://localhost:8000/api/filmes/${userID}`;
 
 
 //METODO GET
@@ -19,8 +19,8 @@ axios.get(url)
         tr.innerHTML = `
                             <td class="">${movieID}</td>
                             <td><img class="img-fluid" src="${posterPath}" alt=""></td>
-                            <td ><Span><a href="http://localhost:5500/front_end/detalhes.html?imdbID=${imdbID}">${title}</a></Span></td>
-                            <td><a href="http://localhost:5500/front_end/rating.html?id=${movieID}"><img src="./img/plus-square.svg" alt=""></img></a>
+                            <td ><Span><a href="http://localhost:5500/ListaDeFilmes-main/front_end/detalhes.html?imdbID=${imdbID}">${title}</a></Span></td>
+                            <td><a href="http://localhost:5500/ListaDeFilmes-main/front_end/rating.html?id=${movieID}"><img src="./img/plus-square.svg" alt=""></img></a>
                             </td>
                             <td id="status">${status}</td>
                             <td class="actions"><a class="m-2 edit"><img src="./img/edit-2.svg" alt=""></a><a  class="m-2 delete"><img src="./img/trash.svg" alt=""></a></td>
@@ -74,7 +74,7 @@ edtions.forEach(function (editIcon){
                 let opcao = event.target.value;
                 statusElement.innerText = opcao;
         
-                axios.put(`http://localhost:8080/api/filmes/${id}`,{
+                axios.put(`http://localhost:8000/api/filmes/${id}`,{
                     status: `${opcao}`
                 })
                 .then(response => {
@@ -101,7 +101,7 @@ function fazDelete(){
             const tbody = document.getElementById('result');
             let id = deleteElement.id;
 
-            axios.delete(`http://localhost:8080/api/filmes/${id}`)
+            axios.delete(`http://localhost:8000/api/filmes/${id}`)
             .then(response => {
                 console.log(response.data);
                 tbody.removeChild(deleteElement);

@@ -1,3 +1,5 @@
+//const userID = localStorage.getItem("userID");
+let userID = "4";
 //faz o metodo post em formato json
 function Postala(url, body){
     let request = new XMLHttpRequest()
@@ -10,21 +12,25 @@ function Postala(url, body){
     }
     return request.responseText
 }
-
+//envair para o banco de dados em formato json
 function criar(){
-    let url = "http://localhost:8080/genero"
+    let url = "http://localhost:8000/genero"
     let genero = document.getElementById('genero').value 
 	let descricao = document.getElementById('descricao').value 
     let body = {
         "genero": genero, 
-		"descricao": descricao
-        
+		"descricao": descricao,
+        "UserID": 4
     }
+    ahhh()
+    console.log("ada")
     
     Postala(url, body)
+    main()
+    
 }
 //cria a tabela
-function criar(){
+function ahhh(){
     let tb = document.querySelector('.table');
     let row = tb.insertRow();
     let cel0 = row.insertCell(0);
@@ -55,6 +61,9 @@ function criar(){
     cel4.appendChild(editButton);
     cel4.appendChild(deleteButton);
 
+    
+    
+    
     limpar();
 }
    
@@ -81,3 +90,25 @@ function editRow(row) {
     row.parentNode.removeChild(row);
 }
 
+function fazGet(url){
+    let request = new XMLHttpRequest()
+    request.open("GET", url, false)
+    request.send()
+    console.log(request);
+    return request.responseText
+}
+
+
+function main(){
+   
+    let dados = fazGet(`http://localhost:8000/genero/${userID}`) 
+    let tab = document.getElementById('table')
+
+    let usuario = JSON.parse(dados)
+    usuario.forEach(element => {
+        let linha = fazLinha(element)
+        tab.appendChild(linha)
+
+        console.log(userID);
+    });
+}

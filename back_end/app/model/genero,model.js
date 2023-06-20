@@ -13,16 +13,16 @@ class Genero{
             }
         })
     }
-//seleciona todos os itens do banco
-    lista(res){
-        const sql = 'SELECT * FROM genero'
-        conecta.query(sql, (erro, resultado) => {
+//seleciona todos os itens do banco 
+    lista(id, res){
+        const sql = 'SELECT * FROM genero WHERE UserID = ?'
+        conecta.query(sql,id, (erro, resultado) => {
             if(erro){res.status(400).json(erro)
             }else{
                 res.status(200).json(resultado)}})
     }
 
-    //chama o metodo de uptade
+    //chama o metodo de uptade(faz o update de acordo com o id do objeto)
     altera(id, mudaTd, res){
         let sql = 'UPDATE genero SET ? WHERE id = ?'
         conecta.query(sql,[mudaTd, id],(erro, resultado)=>{
@@ -41,7 +41,7 @@ class Genero{
                 result(err, null);
                 return;
             }
-        
+        //mostra o id deletado
             console.log("deleted genero with id: ", id);
             result(null, res);
         })

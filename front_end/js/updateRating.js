@@ -4,7 +4,7 @@ console.log(reviewID)
 
 function getOne(){ 
   
-    axios.get(`http://localhost:8080/review/${reviewID}`)
+    axios.get(`http://localhost:8000/review/${reviewID}`)
     .then(response =>{
         console.log(response.data);
 
@@ -35,7 +35,7 @@ function update (){
         
     }
 
-    axios.put(`http://localhost:8080/rating/${reviewID}`, body)
+    axios.put(`http://localhost:8000/rating/${reviewID}`, body)
     .then(response => {
         console.log(response.data);
     })

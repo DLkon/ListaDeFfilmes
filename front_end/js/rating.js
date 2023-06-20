@@ -1,7 +1,7 @@
 const userID = localStorage.getItem("userID");
 const urlParams = new URLSearchParams(window.location.search);
 const movieID = urlParams.get('id');
-const url = `http://localhost:8080/rating/${userID}`
+const url = `http://localhost:8000/rating/${userID}`
 
 console.log(movieID);
 
@@ -20,7 +20,7 @@ function fazPost(url, body){
 }
 
 function cadastrar(){
-    let url = "http://localhost:8080/rating"
+    let url = "http://localhost:8000/rating"
     let review = document.getElementById('review').value 
 	let rating = document.getElementById('rating').value 
     body = {
@@ -70,7 +70,7 @@ function fazLinha(rating){
 
 
 function main(){
-    let dados = fazGet(`http://localhost:8080/rating/${userID}`) 
+    let dados = fazGet(`http://localhost:8000/rating/${userID}`) 
     let tab = document.getElementById('table')
 
     let usuario = JSON.parse(dados)
@@ -97,7 +97,7 @@ function deletereview(){
                 //  const deleteElement = deleteIcon.closest('tr');
                 const table = document.getElementById('table');
 
-                axios.delete(`http://localhost:8080/rating/${id}`)
+                axios.delete(`http://localhost:8000/rating/${id}`)
                 .then(response => {
                     console.log(response.data);
                     location.reload()

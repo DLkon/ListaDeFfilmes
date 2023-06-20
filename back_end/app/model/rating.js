@@ -24,7 +24,7 @@ class Rating{
     }
 
     buscaPorId(id, res){
-        let sql = 'SELECT * FROM rating WHERE id = ?'// ? = 1
+        let sql = 'SELECT * FROM rating WHERE id = ?'
         conexao.query(sql,id,(erro, resultado)=>{
             if(erro){
                 res.status(400).json(erro)

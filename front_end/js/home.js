@@ -1,7 +1,15 @@
 const apiKey = "e4976d3322e90f8629ba68e6df85676f";
 const btn = document.getElementById('pesquisa');
-const userID = localStorage.getItem("userID");
-console.log(userID);
+
+const urlParams = new URLSearchParams(window.location.search);
+
+
+let userID = "" + urlParams.get('id');
+
+if(userID == "null"){
+    userID = "" + localStorage.getItem('userID');
+}
+
 
    btn.addEventListener('click', () => {
 
@@ -38,7 +46,7 @@ console.log(userID);
    
 
    
-let url = "http://localhost:8080/api/filmes";
+let url = "http://localhost:8000/api/filmes";
 
  function salvaFilme(){
     const spans = document.querySelectorAll('.add');

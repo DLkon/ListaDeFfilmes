@@ -3,7 +3,7 @@ const btn = document.getElementById('submit');
 
 btn.addEventListener('click', () =>{
     console.log("oi")
-    let url = "http://localhost:8080/api/cadastros"
+    let url = "http://localhost:8000/api/cadastros"
     let name = document.getElementById('name').value 
 	let email = document.getElementById('email').value 
 	let pass = document.getElementById('pass').value 
@@ -16,7 +16,8 @@ btn.addEventListener('click', () =>{
         phone: `${phone}`
     })
     .then(response  =>{
-        console.log(response.data)
+        console.log(response.data);
+        window.location.href = 'http://localhost:5500/ListaDeFilmes-main/front_end/login.html'
     })
     .catch(function (error) {
         console.log("erro no post " + error);

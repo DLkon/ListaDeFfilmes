@@ -24,3 +24,17 @@ li{
 #review{
     text-align: center;
 }
+#open-modal{
+    text-align: center;
+}
+table{
+    background-color: white;
+    font-family: 'Quicksand', sans-serif;
+    color: black;
+    border-radius: 10px;
+    
+}
+td{
+    padding: 10px;
+    text-align: center;
+}

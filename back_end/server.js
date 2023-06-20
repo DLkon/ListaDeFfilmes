@@ -14,7 +14,7 @@ require("./app/controller/rating.js")(app);
 require("./app/controller/genero,contoller.js")(app);
 
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT,  () =>{
     console.log(`Server is running on port ${PORT}`);
 })
