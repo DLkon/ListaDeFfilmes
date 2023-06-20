@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap');
 
 
@@ -35,3 +36,34 @@ h1{
 }
 
 
+=======
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap');
+
+body {
+    background-color: #1a1a1a;
+    color: white;
+    font-family: "Quicksand", "sans-serif";
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1{
+    text-align: center;
+    font-family: "Quicksand", "sans-serif";
+}
+#sen{
+    text-align: center;
+    font-family: "Quicksand", "sans-serif";
+}
+
+.small-label {
+    font-size: 12px; /* Ajuste o tamanho da fonte conforme necessário */
+    
+  }
+  .smaller-input {
+    width: 20px; /* Defina o valor desejado para o tamanho do input */
+  }
+
+>>>>>>> 393f323ca1b1b428de71a963c1b829e7158ed976
