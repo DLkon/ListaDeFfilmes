@@ -1,3 +1,4 @@
+//faz o metodo post em formato json
 function Postala(url, body){
     let request = new XMLHttpRequest()
     request.open("POST", url, true)
@@ -22,7 +23,7 @@ function criar(){
     
     Postala(url, body)
 }
-
+//cria a tabela
 function criar(){
     let tb = document.querySelector('.table');
     let row = tb.insertRow();
@@ -65,7 +66,7 @@ function limpar(){
     document.getElementById('genero').value = '';
     document.getElementById('descricao').value = '';
 }
-
+//funcao de editar a celula
 function editRow(row) {
     let cells = row.cells;
 

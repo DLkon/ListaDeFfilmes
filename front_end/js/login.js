@@ -11,6 +11,8 @@ function verificaLogin(url, body){
     req.send(json);
     req.onload = () => {
         console.log(req.responseText);
+
+        
           const response = JSON.parse(req.responseText);
           const[primeiroObjeto] = response;
           const {userID} = primeiroObjeto;

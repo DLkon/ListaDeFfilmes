@@ -1,7 +1,7 @@
 const apiKey = "e4976d3322e90f8629ba68e6df85676f";
 const btn = document.getElementById('pesquisa');
 const userID = localStorage.getItem("userID");
-
+console.log(userID);
 
    btn.addEventListener('click', () => {
 

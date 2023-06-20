@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/genero.js"></script>
+    <link rel="stylesheet" href="css/gender.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <title>criador de genero</title>
 </head>
 <body>
     <h1>Crie um genero</h1>
 
-    <div class="mb-3">
-        <label for="genero" class="form-label">Digite o nome do genero</label>
-       <input class="form-control" name="genero" type="text" id="genero" />
-       <br>
+    <div id="sen" class="mb-3 ">
+        <label  for="genero" class="form-label ">Digite o nome do genero</label>
+        <div class="d-flex justify-content-center">
+       <input class="form-control d-flex justify-content-center" style="max-width: 200px;" name="genero" type="text" id="genero" />
+      </div>
        <label for="descricao" class="form-label">Digite uma descricao para seu genero</label>
-       <input class="form-control me-2" name="descricao" type="text" id="descricao" />
+       <div class="d-flex justify-content-center">
+       <input class="form-control me-2" style="max-width: 200px;" name="descricao" type="text" id="descricao" /> <br>
+      </div>
        <button type="button" class="btn btn-primary" id="criar" onclick="criar()">criar</button>
     </div>
     
@@ -39,7 +43,7 @@
           </table>
     </div>
     </div>
-
+ 
 
 </body>
 
